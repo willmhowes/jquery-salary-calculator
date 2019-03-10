@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>jQuery Salary Calculator</title>
-  <script src="scripts/jquery-3.3.1.min.js"></script>
-  <script src="scripts/client.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles/main.css" />
+	<meta charset="UTF-8">
+	<title>jQuery Salary Calculator</title>
+	<script src="scripts/jquery-3.3.1.min.js"></script>
+	<script src="scripts/client.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/main.css" />
 </head>
 <body>
-  <header class="header">
-    <h1>Salary Calculator</h1>
-  </header>
+	<header class="header">
+	<h1>Salary Calculator</h1>
+	</header>
 
-  <main>
-    <h2>Add Employee</h2>
-    <form>
-      <input id="firstName" placeholder="First Name">
-      <input id="lastName" placeholder="Last Name">
-      <input id="idNumber" placeholder="ID Number">
-      <input id="jobTitle" placeholder="Job Title">
-      <input id="annualSalary" placeholder="Annual Salary">
-      <button id="submitFormButton">Submit</button>
-    </form>
+	<main>
+	<h2>Add Employee</h2>
+	<form>
+		<input id="firstName" placeholder="First Name">
+		<input id="lastName" placeholder="Last Name">
+		<input id="idNumber" placeholder="ID Number">
+		<input id="jobTitle" placeholder="Job Title">
+		<input id="annualSalary" placeholder="Annual Salary">
+		<button id="submitFormButton">Submit</button>
+	</form>
 
-    <br>
+	<br>
 
-    <table>
-      <theader>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>ID Num</th>
-          <th>Job Title</th>
-          <th>Annual Salary</th>
-        </tr>
-      </theader>
+	<table>
+		<theader>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>ID Num</th>
+				<th>Job Title</th>
+				<th>Annual Salary</th>
+				<th>Delete</th>
+			</tr>
+		</theader>
 
-      <tbody id="tableBody">
-        <!-- Table Content -->
-      </tbody>
+		<tbody id="tableBody">
+			<!-- Table Content -->
+		</tbody>
 
-      <tfoot id="footer">
-        <!-- Footer Content -->
-      </tfoot>
-    </table>
+		<tfoot id="footer">
+			<!-- Footer Content -->
+		</tfoot>
+	</table>
 
-    <h2 id="monthlyCost"></h2>
+	<h2 id="monthlyCost"></h2>
 
-  </main>
+	</main>
 </body>
 </html>
