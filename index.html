@@ -13,18 +13,33 @@
   </header>
 
   <main>
-    <table class="table">
-      <th>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>ID Num</td>
-        <td>Job Title</td>
-        <td>Annual Salary</td>
-      </th>
-    </table>
+    <h2>Add Employee</h2>
     <form>
-      <input>
+      <input id="firstName" placeholder="First Name">
+      <input id="lastName" placeholder="Last Name">
+      <input id="idNumber" placeholder="ID Number">
+      <input id="jobTitle" placeholder="Job Title">
+      <input id="annualSalary" placeholder="Annual Salary">
+      <button id="submitForm">Submit</button>
     </form>
+
+    <br>
+
+    <table class="table">
+      <theader>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>ID Num</th>
+          <th>Job Title</th>
+          <th>Annual Salary</th>
+        </tr>
+      </theader>
+      <tbody>
+        <tr id="tableRow"></tr>
+      </tbody>
+    </table>
+
   </main>
 </body>
 </html>

@@ -1,0 +1,12 @@
+th {
+  color: black;
+  border: solid black 3px;
+  text-align: center;
+}
+
+table {
+  table-layout: fixed;
+  width: 600px;
+  border-collapse: collapse;
+  border: 3px solid grey;
+}
