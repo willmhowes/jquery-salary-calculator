@@ -1,12 +1,20 @@
-th {
+th, tfoot {
   color: black;
-  border: solid black 3px;
+  border: solid black 2px;
   text-align: center;
+}
+
+td {
+  color: black;
+  border: solid black 2px;
+  text-align: left;
+
+  
 }
 
 table {
   table-layout: fixed;
-  width: 600px;
+  width: 800px;
   border-collapse: collapse;
   border: 3px solid grey;
 }
