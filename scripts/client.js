@@ -21,24 +21,44 @@ function onReady() {
 	$('#submitFormButton').on('click', handleSubmit)
 }
 
-function createNewObject() {
+function createNewEmployee() {
 	console.log('button works');
 
-	let newEmployee = new Employee (
-		$('#firstName').val(),
-		$('#lastName').val(),
-		$('#idNumber').val(),
-		$('#jobTitle').val(),
-		$('#annualSalary').val(),
-	)
+	let insertionCheck = true;
 
-	employeeList.push(newEmployee);
-	render();
+	for (let employee of employeeList) {
+		if ($('#idNumber').val() == employee.idNumber) {
+			alert('ID Number is already in use. Please try again.');
+			insertionCheck = false;
+		}
+	}
+
+	if (insertionCheck == true) {
+		let newEmployee = new Employee(
+			$('#firstName').val(),
+			$('#lastName').val(),
+			$('#idNumber').val(),
+			$('#jobTitle').val(),
+			$('#annualSalary').val(),
+		)
+		employeeList.push(newEmployee);
+
+		$('#firstName').val('');
+		$('#lastName').val('');
+		$('#idNumber').val('');
+		$('#jobTitle').val('');
+		$('#annualSalary').val('');
+		render();
+	}
 }
 
 function handleSubmit(event) {
 	event.preventDefault(); // prevent page refresh
-	createNewObject();
+	createNewEmployee();
+}
+
+function removeEmployee() {
+
 }
 
 function render() {
