@@ -9,44 +9,48 @@
 </head>
 <body>
 	<header class="header">
-	<h1>Salary Calculator</h1>
+		<h1>Salary Calculator</h1>
 	</header>
 
 	<main>
-	<h2>Add Employee</h2>
-	<form>
-		<input id="firstName" placeholder="First Name">
-		<input id="lastName" placeholder="Last Name">
-		<input id="idNumber" placeholder="ID Number">
-		<input id="jobTitle" placeholder="Job Title">
-		<input id="annualSalary" placeholder="Annual Salary">
-		<button id="submitFormButton">Submit</button>
-	</form>
 
-	<br>
+		<div>
+			<h2>Add Employee</h2>
+			<form>
+				<input class="inputForm" id="firstName" placeholder="First Name">
+				<input class="inputForm" id="lastName" placeholder="Last Name">
+				<input class="inputForm" id="idNumber" placeholder="ID Number">
+				<input class="inputForm" id="jobTitle" placeholder="Job Title">
+				<input class="inputForm" id="annualSalary" placeholder="Annual Salary">
+				<button id="submitFormButton">Submit</button>
+			</form>
+		</div>
 
-	<table>
-		<theader>
-			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>ID Num</th>
-				<th>Job Title</th>
-				<th>Annual Salary</th>
-				<th>Remove</th>
-			</tr>
-		</theader>
+		<br>
+		<br>
 
-		<tbody id="tableBody">
-			<!-- Table Content -->
-		</tbody>
+		<table>
+			<theader>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>ID Num</th>
+					<th>Job Title</th>
+					<th>Annual Salary</th>
+					<th>Remove</th>
+				</tr>
+			</theader>
 
-		<tfoot id="footer">
-			<!-- Footer Content -->
-		</tfoot>
-	</table>
+			<tbody id="tableBody">
+				<!-- Table Content -->
+			</tbody>
 
-	<h2 id="monthlyCost"></h2>
+			<tfoot id="footer">
+				<!-- Footer Content -->
+			</tfoot>
+		</table>
+
+		<h2 id="monthlyCost">Monthly Cost: $0</h2>
 
 	</main>
 </body>

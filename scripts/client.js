@@ -16,15 +16,18 @@ class Employee {
 
 }
 
-// NOTE: add better form validation
 function formValidation() {
-	for (let employee of employeeList) {
-		if ($('#idNumber').val() == employee.idNumber) {
-			alert('ID Number is already in use. Please try again.');
-			return false;
+	if (isInt($('#idNumber').val()) && isInt($('#annualSalary').val())) {
+		for (let employee of employeeList) {
+			if ($('#idNumber').val() == employee.idNumber) {
+				alert('ID Number is already in use! Please try again.');
+				return false;
+			}
 		}
+		return true;
 	}
-	return true;
+	alert('Be sure to enter valid salary and ID numbers!')
+	return false;
 }
 
 function onReady() {
@@ -34,8 +37,6 @@ function onReady() {
 }
 
 function createNewEmployee() {
-	console.log('submit button works');
-
 	if (formValidation() == true) {
 		let newEmployee = new Employee(
 			$('#firstName').val(),
@@ -46,11 +47,11 @@ function createNewEmployee() {
 		)
 		employeeList.push(newEmployee);
 
-		// $('#firstName').val('');
-		// $('#lastName').val('');
-		// $('#idNumber').val('');
-		// $('#jobTitle').val('');
-		// $('#annualSalary').val('');
+		$('#firstName').val('');
+		$('#lastName').val('');
+		$('#idNumber').val('');
+		$('#jobTitle').val('');
+		$('#annualSalary').val('');
 		render();
 	}
 }
@@ -58,6 +59,13 @@ function createNewEmployee() {
 function handleSubmit(event) {
 	event.preventDefault(); // prevent page refresh
 	createNewEmployee();
+}
+
+function isInt(val) {
+	if(Number.isInteger(Number(val))) {
+		return true;
+	}
+	return false;
 }
 
 function removeEmployee(event) {
