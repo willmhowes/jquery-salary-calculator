@@ -1,7 +1,7 @@
 $(document).ready( onReady);
 
 let employeeList = [];
-let showFooter = false;
+let footerState = false;
 
 class Employee {
 	constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
@@ -74,18 +74,7 @@ function render() {
 	$('#tableBody').empty();
 	$('#monthlyCost').empty();
 
-	// Shows the footer after 5 employees have been added to the array
-	if (showFooter == false && employeeList.length > 4) {
-		$('#footer').append(`<tr>
-		<th>First Name</th>
-		<th>Last Name</th>
-		<th>ID Num</th>
-		<th>Job Title</th>
-		<th>Annual Salary</th>
-		</tr>`)
-
-		showFooter = true;
-	}
+	showFooter();
 
 	let monthlyCost = 0;
 	let $employeeData;
@@ -113,5 +102,25 @@ function render() {
 		$('#monthlyCost').css('background-color', '#ffffff');
 	} else if (monthlyCost > 20000) {
 		$('#monthlyCost').css('background-color', 'red');
+	}
+}
+
+function showFooter() {
+
+	// Shows the footer after 5 employees have been added to the array
+	if (footerState == false && employeeList.length > 4) {
+		$('#footer').append(`<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>ID Num</th>
+		<th>Job Title</th>
+		<th>Annual Salary</th>
+		<th>Delete</th>
+		</tr>`)
+
+		footerState = true;
+	} else if (footerState == true && employeeList.length <= 4) {
+		$('#footer').empty();
+		footerState = false;
 	}
 }
