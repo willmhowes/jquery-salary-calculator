@@ -16,24 +16,27 @@ class Employee {
 
 }
 
-function onReady() {
-	console.log('jq');
-	$('#submitFormButton').on('click', handleSubmit)
-}
-
-function createNewEmployee() {
-	console.log('button works');
-
-	let insertionCheck = true;
-
+// NOTE: add better form validation
+function formValidation() {
 	for (let employee of employeeList) {
 		if ($('#idNumber').val() == employee.idNumber) {
 			alert('ID Number is already in use. Please try again.');
-			insertionCheck = false;
+			return false;
 		}
 	}
+	return true;
+}
 
-	if (insertionCheck == true) {
+function onReady() {
+	console.log('jq');
+	$('#submitFormButton').on('click', handleSubmit)
+	$('#tableBody').on('click', '.removeButton', removeEmployee)
+}
+
+function createNewEmployee() {
+	console.log('submit button works');
+
+	if (formValidation() == true) {
 		let newEmployee = new Employee(
 			$('#firstName').val(),
 			$('#lastName').val(),
@@ -43,11 +46,11 @@ function createNewEmployee() {
 		)
 		employeeList.push(newEmployee);
 
-		$('#firstName').val('');
-		$('#lastName').val('');
-		$('#idNumber').val('');
-		$('#jobTitle').val('');
-		$('#annualSalary').val('');
+		// $('#firstName').val('');
+		// $('#lastName').val('');
+		// $('#idNumber').val('');
+		// $('#jobTitle').val('');
+		// $('#annualSalary').val('');
 		render();
 	}
 }
@@ -57,8 +60,14 @@ function handleSubmit(event) {
 	createNewEmployee();
 }
 
-function removeEmployee() {
-
+function removeEmployee(event) {
+	for (let i in employeeList) {
+		if (`button${employeeList[i].idNumber}` == `${event.currentTarget.id}`) {
+			employeeList.splice(i, 1);
+			break;
+		}
+	}
+	render();
 }
 
 function render() {
@@ -88,7 +97,7 @@ function render() {
 		<td>${employee.idNumber}</td>
 		<td>${employee.jobTitle}</td>
 		<td>${employee.annualSalary}</td>
-		<td><button>Delete</button></td>
+		<td><button class="removeButton" id="button${employee.idNumber}">Remove</button></td>
 		</tr>`);
 
 		if (Number.isInteger(employee.annualSalary)) {
