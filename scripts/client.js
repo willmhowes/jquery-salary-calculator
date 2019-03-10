@@ -86,7 +86,7 @@ function render() {
 		<td>${employee.idNumber}</td>
 		<td>${employee.jobTitle}</td>
 		<td>${employee.annualSalary}</td>
-		<td><button class="removeButton" id="button${employee.idNumber}">Remove</button></td>
+		<td class="buttonCell"><button class="removeButton" id="button${employee.idNumber}">Remove</button></td>
 		</tr>`);
 
 		if (Number.isInteger(employee.annualSalary)) {
@@ -99,7 +99,7 @@ function render() {
 	$('#monthlyCost').append(`Monthly Cost: $${Math.round(monthlyCost * 100) / 100}`);
 
 	if (monthlyCost < 20000) {
-		$('#monthlyCost').css('background-color', '#ffffff');
+		$('#monthlyCost').css('background-color', 'green');
 	} else if (monthlyCost > 20000) {
 		$('#monthlyCost').css('background-color', 'red');
 	}
@@ -115,7 +115,7 @@ function showFooter() {
 		<th>ID Num</th>
 		<th>Job Title</th>
 		<th>Annual Salary</th>
-		<th>Delete</th>
+		<th>Remove</th>
 		</tr>`)
 
 		footerState = true;
