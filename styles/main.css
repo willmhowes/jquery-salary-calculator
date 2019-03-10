@@ -8,13 +8,11 @@ td {
 	color: black;
 	border: solid black 2px;
 	text-align: left;
-
-
 }
 
 table {
 	table-layout: fixed;
 	width: 800px;
 	border-collapse: collapse;
-	border: 3px solid grey;
+	border: 3px solid black;
 }
