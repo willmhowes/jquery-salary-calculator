@@ -25,16 +25,43 @@ function onReady() {
 function createNewObject() {
   console.log('button works');
 
-  let employee = new Employee (
+  let newEmployee = new Employee (
     $('#firstName').val(),
     $('#lastName').val(),
     $('#idNumber').val(),
     $('#jobTitle').val(),
     $('#annualSalary').val(),
   )
+
+  employeeList.push(newEmployee);
+  render();
 }
 
 function handleSubmit(event) {
   event.preventDefault(); // prevent page refresh
   createNewObject();
+}
+
+function render() {
+  $('#tableBody').empty();
+
+  let monthlyCost = 0;
+  let $employeeData;
+
+  for (let employee of employeeList) {
+    $employeeData = $(
+    `<tr><td>${employee.firstName}</td>
+    <td>${employee.lastName}</td>
+    <td>${employee.idNumber}</td>
+    <td>${employee.jobTitle}</td>
+    <td>${employee.annualSalary}</td></tr>`
+    );
+
+    monthlyCost += employee.annualSalary / 12;
+
+    $('#tableBody').append($employeeData);
+  }
+
+  $('#monthlyCost').append(`Monthly Cost: $${Math.round(monthlyCost * 100) / 100}`);
+
 }
