@@ -1,5 +1,7 @@
 $(document).ready( onReady);
 
+let employeeList = [];
+
 class Employee {
   constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
     this.firstName = firstName;
@@ -7,19 +9,32 @@ class Employee {
     this.idNumber = idNumber;
     this.jobTitle = jobTitle;
     this.annualSalary = annualSalary;
+    // this.caclulation = methodForCalculation();
   }
 
-  addToDOM() {
+  // Methods go here
 
-  }
 }
 
 
 function onReady() {
   console.log('jq');
-  $('#submitForm').on('click', createNewObject)
+  $('#submitFormButton').on('click', handleSubmit)
 }
 
 function createNewObject() {
+  console.log('button works');
 
+  let employee = new Employee (
+    $('#firstName').val(),
+    $('#lastName').val(),
+    $('#idNumber').val(),
+    $('#jobTitle').val(),
+    $('#annualSalary').val(),
+  )
+}
+
+function handleSubmit(event) {
+  event.preventDefault(); // prevent page refresh
+  createNewObject();
 }
